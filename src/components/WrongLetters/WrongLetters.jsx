@@ -3,7 +3,7 @@ import './WrongLetters.css';
   
   export default function WrongLetters({wrongLetters}) {
     return (
-      <div classname ="wrong-letters-container">
+      <div className ="wrong-letters-container">
         <div>
           {wrongLetters.length > 0 && 
             <p>Wrong</p>
