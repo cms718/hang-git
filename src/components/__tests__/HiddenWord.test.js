@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import HiddenWord from "../HiddenWord";
+import HiddenWord from "../HiddenWord/HiddenWord";
 
 test("renders all underscores if no guessed letter", () => {
   const word = "init";

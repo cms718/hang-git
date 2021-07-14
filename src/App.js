@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DisplayLives from "./components/DisplayLives";
-import HiddenWord from "./components/HiddenWord.jsx";
+import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters";
 
 function App() {
