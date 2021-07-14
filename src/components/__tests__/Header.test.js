@@ -1,23 +1,11 @@
 
 import { render, screen } from '@testing-library/react';
 import App from '../../App';
-const header = require('./Header.jsx');
-import HiddenWord from "../HiddenWord/HiddenWord";
+// const header = require('../Header/.jsx');
+import Header from "../Header/Header";
 
-test("renders all underscores if no guessed letter", () => {
-  const word = "init";
-  const guessedLetters = [];
-  render(<HiddenWord word={word} guessedLetters={guessedLetters} />);
-  const letters = screen.getAllByText("_");
-  expect(letters.length).toBe(4);
-});
-
-test("renders an _ for each unknown letter", () => {
-  const word = "init";
-  const guessedLetters = ["i"];
-  render(<HiddenWord word={word} guessedLetters={guessedLetters} />);
-  const letters = screen.getAllByText("_");
-  const letters2 = screen.getAllByText("i");
-  expect(letters.length).toBe(2);
-  expect(letters2.length).toBe(2);
+test('renders Header', () => {
+  render(<App />);
+  const myHeader = screen.getByText(/HANG-GIT/i);
+  expect(myHeader).toBeInTheDocument();
 });
