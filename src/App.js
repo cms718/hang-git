@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
@@ -11,8 +12,25 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
 
+  const handleKeyPress = useCallback(
+    ({ key }) => {
+      const guessedLettersCopy = [...guessedLetters];
+      guessedLettersCopy.push(key);
+      setGuessedLetters(guessedLettersCopy);
+    },
+    [guessedLetters]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
   return (
     <div>
+      <Header />
       <DisplayLives lives={lives} />
       <WrongLetters wrongLetters={wrongLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
