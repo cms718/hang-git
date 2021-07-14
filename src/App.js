@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters";
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       <DisplayLives lives={lives} />
       <WrongLetters wrongLetters={wrongLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
