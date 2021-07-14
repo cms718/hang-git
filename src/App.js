@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import DisplayLives from "./components/DisplayLives";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters";
@@ -10,6 +10,23 @@ function App() {
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
+
+  const handleKeyPress = useCallback(
+    ({ key }) => {
+      const guessedLettersCopy = [...guessedLetters];
+      guessedLettersCopy.push(key);
+      setGuessedLetters(guessedLettersCopy);
+    },
+    [guessedLetters]
+  );
+
+  useEffect(() => {
+    console.log("Render");
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   return (
     <div>
