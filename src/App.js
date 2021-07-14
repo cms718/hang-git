@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-import DisplayLives from "./components/DisplayLives";
+import DisplayLives from "./components/DisplayLives/DisplayLives";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters";
 
