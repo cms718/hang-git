@@ -1,0 +1,9 @@
+.hidden-word-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.letter {
+  padding: 2px;
+  font-size: 28px;
+}
