@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DisplayLives from "./components/DisplayLives";
 import HiddenWord from "./components/HiddenWord.jsx";
-import WrongLetters from "./components/WrongLetters";
+import WrongLetters from "./components/WrongLetters/WrongLetters";
 
 function App() {
   const fakeData = [{ word: "init", hint: "How to initialise git" }];

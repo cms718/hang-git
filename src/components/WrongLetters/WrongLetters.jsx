@@ -1,6 +1,5 @@
 import React from 'react'
-
-const WrongLetters = ({wrongLetters}) => {
+import './WrongLetters.css';
   
   export default function WrongLetters({wrongLetters}) {
     return (
@@ -16,5 +15,4 @@ const WrongLetters = ({wrongLetters}) => {
       </div>
     )
   }  
-}
 
