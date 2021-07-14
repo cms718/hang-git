@@ -1,5 +1,14 @@
+import React, { useState } from "react";
+import DisplayLives from "./components/DisplayLives";
+
 function App() {
-  return <div></div>;
+  const [lives, setLives] = useState(6);
+
+  return (
+    <div>
+      <DisplayLives lives={lives} />
+    </div>
+  );
 }
 
 export default App;
