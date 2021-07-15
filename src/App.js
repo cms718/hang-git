@@ -39,17 +39,18 @@ function App() {
   }, [handleKeyPress]);
 
   return (
-
+    <>
     <div className ="hang-git-container">
-      <Header />
-      <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
-      <Hint hint={words[0].hint}/>
-      <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
-      <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
-    </div>
-      <Popup />
-      <Notification showNotification={showNotification} />
-    </>
+    <Header />
+    <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
+    <Hint hint={words[0].hint}/>
+    <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
+    <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
+  </div>
+    <Popup />
+    <Notification showNotification={showNotification} />
+  </>
+    
   );
 }
 
