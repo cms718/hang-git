@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives/DisplayLives";
-import Hint from "./components/Hint/Hint"
+import Hint from "./components/Hint/Hint";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
-import './App.css';
+import "./App.css";
 import Notification from "./components/Notification/Notification.jsx";
 import Popup from "./components/Popup/Popup.jsx";
-import {showNotification as show } from './helpers/helpers';
-
+import { showNotification as show } from "./helpers/helpers";
+import RoundCompleted from "./components/RoundCompleted/RoundCompleted";
 
 function App() {
   const fakeData = [{ word: "init", hint: "initialise git" }];
@@ -17,6 +17,8 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [lives, setLives] = useState(6);
+  const [inProgress, setInProgress] = useState(true);
 
   const handleKeyPress = useCallback(
     ({ key }) => {
@@ -38,19 +40,42 @@ function App() {
     };
   }, [handleKeyPress]);
 
+  const resetGame = () => {
+    setLives(6);
+    setGuessedLetters([]);
+    setInProgress(true);
+  };
+
+  const updateInProgress = (bool) => {
+    setInProgress(bool);
+  };
+
   return (
     <>
-    <div className ="hang-git-container">
-    <Header />
-    <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
-    <Hint hint={words[0].hint}/>
-    <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
-    <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
-  </div>
-    <Popup />
-    <Notification showNotification={showNotification} />
-  </>
-    
+      <div className="hang-git-container">
+        <Header />
+        <DisplayLives
+          word={words[0].word}
+          guessedLetters={guessedLetters}
+          lives={lives}
+          updateLives={setLives}
+        />
+        <Hint hint={words[0].hint} />
+        <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
+        <HiddenWord
+          word={words[0].word}
+          guessedLetters={guessedLetters}
+          inProgess={inProgress}
+        />
+        <RoundCompleted
+          lives={lives}
+          resetGame={resetGame}
+          updateInProgress={updateInProgress}
+        />
+      </div>
+      <Popup />
+      <Notification showNotification={showNotification} />
+    </>
   );
 }
 
