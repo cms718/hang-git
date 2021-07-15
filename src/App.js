@@ -7,16 +7,17 @@ import WrongLetters from "./components/WrongLetters";
 function App() {
   const fakeData = [{ word: "init", hint: "How to initialise git" }];
 
-  const [lives, setLives] = useState(6);
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
 
   const handleKeyPress = useCallback(
     ({ key }) => {
-      const guessedLettersCopy = [...guessedLetters];
-      guessedLettersCopy.push(key);
-      setGuessedLetters(guessedLettersCopy);
+      if (!guessedLetters.includes(key)) {
+        const guessedLettersCopy = [...guessedLetters];
+        guessedLettersCopy.push(key);
+        setGuessedLetters(guessedLettersCopy);
+      }
     },
     [guessedLetters]
   );
@@ -31,7 +32,7 @@ function App() {
   return (
     <div>
       <Header />
-      <DisplayLives lives={lives} />
+      <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
       <WrongLetters wrongLetters={wrongLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
     </div>
