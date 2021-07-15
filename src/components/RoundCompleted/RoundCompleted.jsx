@@ -10,10 +10,14 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
     }
   }, [lives, updateInProgress])
 
+  const reset = () => {
+    setLose(false)
+    resetGame()
+  }
   return (
     lose && !inProgress &&
     <div>
-      <button onClick={resetGame}>Try again</button>
+      <button onClick={reset}>Try again</button>
     </div>
   )
 }
