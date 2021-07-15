@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives/DisplayLives";
+import Hint from "./components/Hint/Hint"
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
-import WrongLetters from "./components/WrongLetters";
+import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
 
 function App() {
-  const fakeData = [{ word: "init", hint: "How to initialise git" }];
+  const fakeData = [{ word: "init", hint: "initialise git" }];
 
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]);
@@ -33,6 +34,7 @@ function App() {
     <div>
       <Header />
       <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
+      <Hint hint={words[0].hint}/>
       <WrongLetters wrongLetters={wrongLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
     </div>
