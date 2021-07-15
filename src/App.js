@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives/DisplayLives";
 import Hint from "./components/Hint/Hint"
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
-// import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
+import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
 import './App.css';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       <Header />
       <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
       <Hint hint={words[0].hint}/>
-      {/* <WrongLetters wrongLetters={wrongLetters} /> */}
+      <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
     </div>
   );
