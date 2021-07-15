@@ -17,7 +17,6 @@ function App() {
 
   const handleKeyPress = useCallback(
     ({ key }) => {
-      console.log(inProgress);
       if (!guessedLetters.includes(key)) {
         const guessedLettersCopy = [...guessedLetters];
         guessedLettersCopy.push(key);
