@@ -3,7 +3,8 @@ import Header from "./components/Header/Header";
 import DisplayLives from "./components/DisplayLives/DisplayLives";
 import Hint from "./components/Hint/Hint"
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
-import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
+// import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
+import './App.css';
 
 function App() {
   const fakeData = [{ word: "init", hint: "initialise git" }];
@@ -31,11 +32,11 @@ function App() {
   }, [handleKeyPress]);
 
   return (
-    <div>
+    <div className ="hang-git-container">
       <Header />
       <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
       <Hint hint={words[0].hint}/>
-      <WrongLetters wrongLetters={wrongLetters} />
+      {/* <WrongLetters wrongLetters={wrongLetters} /> */}
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
     </div>
   );
