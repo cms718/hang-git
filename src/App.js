@@ -4,9 +4,11 @@ import DisplayLives from "./components/DisplayLives/DisplayLives";
 import Hint from "./components/Hint/Hint"
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
+import './App.css';
 import Notification from "./components/Notification/Notification.jsx";
 import Popup from "./components/Popup/Popup.jsx";
 import {showNotification as show } from './helpers/helpers';
+
 
 function App() {
   const fakeData = [{ word: "init", hint: "initialise git" }];
@@ -38,16 +40,17 @@ function App() {
 
   return (
     <>
-      <div className ="game-container">
-      <Header />
-      <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
-      <Hint hint={words[0].hint}/>
-      <WrongLetters wrongLetters={wrongLetters} />
-      <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
-    </div>
-      <Popup />
-      <Notification showNotification={showNotification} />
-    </>
+    <div className ="hang-git-container">
+    <Header />
+    <DisplayLives word={words[0].word} guessedLetters={guessedLetters} />
+    <Hint hint={words[0].hint}/>
+    <WrongLetters word={words[0].word} guessedLetters={guessedLetters} />
+    <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
+  </div>
+    <Popup />
+    <Notification showNotification={showNotification} />
+  </>
+    
   );
 }
 
