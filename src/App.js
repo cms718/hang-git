@@ -5,15 +5,20 @@ import Hint from "./components/Hint/Hint";
 import HiddenWord from "./components/HiddenWord/HiddenWord.jsx";
 import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
 import RoundCompleted from "./components/RoundCompleted/RoundCompleted";
+import Notification from "./components/Notification/Notification.jsx";
+import Popup from "./components/Popup/Popup.jsx";
+import {showNotification as show } from './helpers/helpers';
+
 
 function App() {
   const fakeData = [{ word: "init", hint: "initialise git" }];
 
   const [words, setWords] = useState(fakeData);
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [wrongLetters, setWrongLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
   const [lives, setLives] = useState(6);
   const [inProgress, setInProgress] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
+
 
   const handleKeyPress = useCallback(
     ({ key }) => {
@@ -21,6 +26,8 @@ function App() {
         const guessedLettersCopy = [...guessedLetters];
         guessedLettersCopy.push(key);
         setGuessedLetters(guessedLettersCopy);
+      } else {
+        show(setShowNotification);
       }
     },
     [guessedLetters]
@@ -44,7 +51,8 @@ function App() {
   };
 
   return (
-    <div>
+    <>
+      <div className ="game-container">
       <Header />
       <DisplayLives
         word={words[0].word}
@@ -65,6 +73,9 @@ function App() {
         updateInProgress={updateInProgress}
       />
     </div>
+      <Popup />
+      <Notification showNotification={showNotification} />
+    </>
   );
 }
 
