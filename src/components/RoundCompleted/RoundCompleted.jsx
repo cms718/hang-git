@@ -16,8 +16,9 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
       return guessedLetters.includes(letter)
     })) {
       setWin(true)
+      updateInProgress(false)
     }
-  }, [guessedLetters, word])
+  }, [guessedLetters, word, updateInProgress])
 
   const reset = () => {
     setLose(false)
@@ -33,6 +34,7 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
       </div>}
       {win &&
         <div>
+          <p>Well Done!</p>
           <button>Next Question</button>
         </div>
         }

@@ -21,15 +21,17 @@ export default function Game({exitGame, user}) {
   
   const handleKeyPress = useCallback(
     ({ key }) => {
-      if (!guessedLetters.includes(key)) {
-        const guessedLettersCopy = [...guessedLetters];
-        guessedLettersCopy.push(key);
-        setGuessedLetters(guessedLettersCopy);
-      } else {
-        show(setShowNotification);
+      if (inProgress) {
+        if (!guessedLetters.includes(key)) {
+          const guessedLettersCopy = [...guessedLetters];
+          guessedLettersCopy.push(key);
+          setGuessedLetters(guessedLettersCopy);
+        } else {
+          show(setShowNotification);
+        }
       }
     },
-    [guessedLetters]
+    [guessedLetters, inProgress]
   );
   
   useEffect(() => {
@@ -68,6 +70,7 @@ export default function Game({exitGame, user}) {
         lives={lives}
         resetGame={resetGame}
         updateInProgress={updateInProgress}
+        inProgress={inProgress}
         exitGame={exitGame}
         word={words[0].word}
         guessedLetters={guessedLetters}
