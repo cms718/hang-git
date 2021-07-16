@@ -5,14 +5,23 @@ import HomeScreen from "./components/HomeScreen/HomeScreen";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
+  const [user, setUser] = useState({ name: "Anon", score: 0 });
 
-  const toggleStartGame = () => {
-    setGameStarted(!gameStarted);
+  const handleStartGame = (name) => {
+    setGameStarted(true);
+    const userCopy = { ...user };
+    userCopy.name = name;
+    setUser(userCopy);
   };
+
+  const handleExitGame = () => {
+    setGameStarted(false);
+  };
+
   return (
     <>
-      {!gameStarted && <HomeScreen startGame={toggleStartGame} />}
-      {gameStarted && <Game exitGame={toggleStartGame} />}
+      {!gameStarted && <HomeScreen startGame={handleStartGame} />}
+      {gameStarted && <Game exitGame={handleExitGame} user={user} />}
     </>
   );
 }

@@ -10,7 +10,7 @@ import Popup from "../Popup/Popup.jsx";
 import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 
-export default function Game({exitGame}) {
+export default function Game({exitGame, user}) {
   const fakeData = [{ word: "init", hint: "initialise git" }];
   
   const [words, setWords] = useState(fakeData);
@@ -21,15 +21,17 @@ export default function Game({exitGame}) {
   
   const handleKeyPress = useCallback(
     ({ key }) => {
-      if (!guessedLetters.includes(key)) {
-        const guessedLettersCopy = [...guessedLetters];
-        guessedLettersCopy.push(key);
-        setGuessedLetters(guessedLettersCopy);
-      } else {
-        show(setShowNotification);
+      if (inProgress) {
+        if (!guessedLetters.includes(key)) {
+          const guessedLettersCopy = [...guessedLetters];
+          guessedLettersCopy.push(key);
+          setGuessedLetters(guessedLettersCopy);
+        } else {
+          show(setShowNotification);
+        }
       }
     },
-    [guessedLetters]
+    [guessedLetters, inProgress]
   );
   
   useEffect(() => {
@@ -68,7 +70,10 @@ export default function Game({exitGame}) {
         lives={lives}
         resetGame={resetGame}
         updateInProgress={updateInProgress}
+        inProgress={inProgress}
         exitGame={exitGame}
+        word={words[0].word}
+        guessedLetters={guessedLetters}
       />
       <Popup />
       <Notification showNotification={showNotification} />
