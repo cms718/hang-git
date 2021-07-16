@@ -8,11 +8,9 @@ function App() {
   const [user, setUser] = useState({ name: "Anon", score: 0 });
 
   const handleStartGame = (name) => {
-    console.log(name);
     setGameStarted(true);
     const userCopy = { ...user };
     userCopy.name = name;
-    console.log(userCopy);
     setUser(userCopy);
   };
 
