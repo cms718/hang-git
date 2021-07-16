@@ -11,6 +11,10 @@ export default function WrongLetters({word, guessedLetters}) {
         const wrongLettersCopy = [...wrongLetters];
         wrongLettersCopy.push(lastLetter + ",");
         setWrongLetters(wrongLettersCopy);
+      } else if (!guessedLetters.length) {
+        // If no guessed letters then game must have reset, so clear wrongLetters
+        const wrongLettersReset = []
+        setWrongLetters(wrongLettersReset)
       }
   }, [guessedLetters, word])
   return (
