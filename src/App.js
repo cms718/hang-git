@@ -18,8 +18,6 @@ function App() {
   const [lives, setLives] = useState(6);
   const [inProgress, setInProgress] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
-  const [lives, setLives] = useState(6);
-  const [inProgress, setInProgress] = useState(true);
 
   const handleKeyPress = useCallback(
     ({ key }) => {
