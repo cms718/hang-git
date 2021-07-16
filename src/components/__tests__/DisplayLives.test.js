@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import App from "../../App";
+import Game from "../Game/Game";
 
 test("lives deplete by 1 with each incorrect guess", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "E" });
