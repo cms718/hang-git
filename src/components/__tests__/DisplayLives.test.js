@@ -13,16 +13,15 @@ test("lives deplete by 1 with each incorrect guess", () => {
   expect(lives).toBeInTheDocument();
 });
 
-
 test("Head is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "Q" });
   const head = screen.getByTestId("head");
   expect(head).toBeInTheDocument();
 });
 
 test("Body is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "Q" });
   const body = screen.getByTestId("body");
@@ -30,7 +29,7 @@ test("Body is displayed", () => {
 });
 
 test("Arm1 is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "R" });
@@ -39,7 +38,7 @@ test("Arm1 is displayed", () => {
 });
 
 test("Arm2 is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "R" });
@@ -49,7 +48,7 @@ test("Arm2 is displayed", () => {
 });
 
 test("Leg1 is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "R" });
@@ -60,7 +59,7 @@ test("Leg1 is displayed", () => {
 });
 
 test("Leg2 is displayed", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "R" });
