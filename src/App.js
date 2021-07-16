@@ -65,7 +65,7 @@ function App() {
         <HiddenWord
           word={words[0].word}
           guessedLetters={guessedLetters}
-          inProgess={inProgress}
+          inProgress={inProgress}
         />
         <RoundCompleted
           lives={lives}
