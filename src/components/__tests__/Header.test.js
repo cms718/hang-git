@@ -1,11 +1,9 @@
+import { render, screen } from "@testing-library/react";
+import App from "../../App";
+import Game from "../Game/Game";
 
-import { render, screen } from '@testing-library/react';
-import App from '../../App';
-// const header = require('../Header/.jsx');
-import Header from "../Header/Header";
-
-test('renders Header', () => {
-  render(<App />);
+test("renders Header", () => {
+  render(<Game />);
   const myHeader = screen.getByText(/HANG-GIT/i);
   expect(myHeader).toBeInTheDocument();
 });
