@@ -15,7 +15,8 @@ function App() {
 
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
-  const [wrongLetters, setWrongLetters] = useState([]);
+  const [lives, setLives] = useState(6);
+  const [inProgress, setInProgress] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
   const [lives, setLives] = useState(6);
   const [inProgress, setInProgress] = useState(true);
