@@ -1,4 +1,9 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  getAllByRole,
+  render,
+  screen,
+} from "@testing-library/react";
 import Game from "../Game/Game";
 test("reset button when out of lives", () => {
   render(<Game />);
@@ -8,5 +13,6 @@ test("reset button when out of lives", () => {
   fireEvent.keyDown(document, { key: "R" });
   fireEvent.keyDown(document, { key: "Y" });
   fireEvent.keyDown(document, { key: "U" });
-  expect(screen.getByRole("button")).toHaveTextContent("Try again");
+  const buttons = screen.getAllByRole("button");
+  expect(buttons[0]).toHaveTextContent("Try again");
 });
