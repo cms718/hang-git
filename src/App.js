@@ -6,13 +6,13 @@ import HomeScreen from "./components/HomeScreen/HomeScreen";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
 
-  const handleStartGame = () => {
-    setGameStarted(true);
+  const toggleStartGame = () => {
+    setGameStarted(!gameStarted);
   };
   return (
     <>
-      {!gameStarted && <HomeScreen startGame={handleStartGame} />}
-      {gameStarted && <Game />}
+      {!gameStarted && <HomeScreen startGame={toggleStartGame} />}
+      {gameStarted && <Game exitGame={toggleStartGame} />}
     </>
   );
 }

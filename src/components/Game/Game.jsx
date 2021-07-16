@@ -10,7 +10,7 @@ import Popup from "../Popup/Popup.jsx";
 import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 
-export default function Game() {
+export default function Game({exitGame}) {
   const fakeData = [{ word: "init", hint: "initialise git" }];
   
   const [words, setWords] = useState(fakeData);
@@ -68,6 +68,7 @@ export default function Game() {
         lives={lives}
         resetGame={resetGame}
         updateInProgress={updateInProgress}
+        exitGame={exitGame}
       />
       <Popup />
       <Notification showNotification={showNotification} />
