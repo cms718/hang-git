@@ -32,7 +32,8 @@ export default function DisplayLives({word, guessedLetters, lives, updateLives})
         {lives <= 1 && <line x1="140" y1="150" x2="120" y2="180"/>}
         {lives <= 0 && <line x1="140" y1="150" x2="160" y2="180"/>}
   </svg>
-      <p>Lives remaining: {lives}</p>
+      <br></br>
+      <span>Lives remaining:</span> <span>{lives}</span>
     </div>
   )
 }
