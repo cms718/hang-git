@@ -1,13 +1,18 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import App from "../../App";
-
+import {
+  fireEvent,
+  getAllByRole,
+  render,
+  screen,
+} from "@testing-library/react";
+import Game from "../Game/Game";
 test("reset button when out of lives", () => {
-  render(<App />);
+  render(<Game />);
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "E" });
   fireEvent.keyDown(document, { key: "R" });
   fireEvent.keyDown(document, { key: "Y" });
   fireEvent.keyDown(document, { key: "U" });
-  expect(screen.getByRole("button")).toHaveTextContent("Try again");
+  const buttons = screen.getAllByRole("button");
+  expect(buttons[0]).toHaveTextContent("Try again");
 });
