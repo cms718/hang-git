@@ -69,6 +69,8 @@ export default function Game({exitGame, user}) {
         resetGame={resetGame}
         updateInProgress={updateInProgress}
         exitGame={exitGame}
+        word={words[0].word}
+        guessedLetters={guessedLetters}
       />
       <Popup />
       <Notification showNotification={showNotification} />
