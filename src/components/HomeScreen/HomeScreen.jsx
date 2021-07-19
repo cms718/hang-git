@@ -8,8 +8,8 @@ export default function HomeScreen({startGame}) {
     setName(target.value)
   }
 
-  const handleStartGame = () => {
-    startGame(name)
+  const handleStartGame = (difficulty) => {
+    startGame(name, difficulty)
   }
   
   return (
@@ -19,7 +19,9 @@ export default function HomeScreen({startGame}) {
       Enter Name:      
       <input type="text" value={name} onChange={(event) => handleChange(event)}/>
     </label><br/>
-    <button onClick={handleStartGame}>Start Game</button>
+    {/* Hard coded, there's a better way of rendering multiple buttons for each difficulty */}
+    <button onClick={() => handleStartGame("easy")}>Easy</button>
+    <button onClick={() => handleStartGame("hard")}>Hard</button>
   </div>
   )
 }
