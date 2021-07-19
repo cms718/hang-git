@@ -27,4 +27,8 @@ test("renders scoreboard when submit score clicked", () => {
 
   const highScores = screen.getByText("High Scores:");
   expect(highScores).toBeInTheDocument();
+  fireEvent.click(screen.getByText("Back"));
+
+  const homePage = screen.getByText("Play Game");
+  expect(homePage).toBeInTheDocument();
 });
