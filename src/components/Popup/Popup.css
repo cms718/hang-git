@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.popup button {
+/* .popup button {
   cursor: pointer;
   background-color: #fff;
   color: #2980b9;
@@ -35,4 +35,4 @@
 
 .popup button:focus {
   outline: 0;
-}
+} */

@@ -7,6 +7,7 @@ import WrongLetters from "./components/WrongLetters/WrongLetters.jsx";
 import Notification from "./components/Notification/Notification.jsx";
 import Popup from "./components/Popup/Popup.jsx";
 import {showNotification as show } from './helpers/helpers';
+import './App.css';
 
 function App() {
   const fakeData = [{ word: "init", hint: "initialise git" }];
@@ -14,7 +15,7 @@ function App() {
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(true);
 
   const handleKeyPress = useCallback(
     ({ key }) => {
@@ -44,9 +45,12 @@ function App() {
       <Hint hint={words[0].hint}/>
       <WrongLetters wrongLetters={wrongLetters} />
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
-    </div>
-      <Popup />
+      {/* <Popup /> */}
       <Notification showNotification={showNotification} />
+      
+    </div>
+      
+       
     </>
   );
 }

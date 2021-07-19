@@ -1,5 +1,5 @@
 .notification-container {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(185, 28, 28, 0.884);
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
@@ -13,4 +13,8 @@
 
 .notification-container.show {
   transform: translateY(-50px);
+}
+
+.test{
+  color:white;
 }
