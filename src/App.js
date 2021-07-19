@@ -46,11 +46,8 @@ function App() {
       <HiddenWord word={words[0].word} guessedLetters={guessedLetters} />
       {/* <Popup /> */}
       
-      
     </div>
     <Notification showNotification={showNotification} />
-      
-       
     </>
   );
 }
