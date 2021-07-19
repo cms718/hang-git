@@ -11,7 +11,12 @@ import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 
 export default function Game({exitGame, user}) {
-  const fakeData = [{ word: "init", hint: "initialise git" }];
+  const fakeData = [
+    { word: "init", hint: "initialise git" }, 
+    { word: "pull", hint: "update what’s on your local version to match what’s on the Github version" }, 
+    { word: "status", hint: "see which files have changed on your local version since the last commit" }, 
+    { word: "diff", hint: "see what has changed within files" },
+  ];
   
   const [words, setWords] = useState(fakeData);
   const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
