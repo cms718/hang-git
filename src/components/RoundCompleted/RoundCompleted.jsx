@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function RoundCompleted({lives, resetGame, inProgress, updateInProgress, exitGame, word, guessedLetters}) {
+export default function RoundCompleted({lives, resetGame, inProgress, updateInProgress, exitGame, word, guessedLetters, updateQuestionIndex}) {
   const [lose, setLose] = useState(false)
   const [win, setWin] = useState(false)
 
@@ -25,6 +25,11 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
     resetGame()
   }
 
+  const nextQuestion = () => {
+    updateQuestionIndex()
+    setWin(false)
+  }
+
   return (
     <div>
       {lose && !inProgress &&
@@ -35,7 +40,7 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
       {win &&
         <div>
           <p>Well Done!</p>
-          <button>Next Question</button>
+          <button onClick={nextQuestion}>Next Question</button>
         </div>
         }
     </div>
