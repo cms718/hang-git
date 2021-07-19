@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import Game from "../Game/Game";
 import App from "../../App";
 
-test("displays submit score button at the end of the game", () => {
-  render(<Game />);
+test("renders scoreboard when submit score clicked", () => {
+  render(<App />);
+  fireEvent.click(screen.getByText("Start Game"));
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "n" });
   fireEvent.keyDown(document, { key: "t" });
@@ -20,13 +20,11 @@ test("displays submit score button at the end of the game", () => {
   fireEvent.keyDown(document, { key: "l" });
   fireEvent.click(screen.getByText("Next Question"));
 
-  const nullButton = screen.queryByText("Submit Score");
-  expect(nullButton).toBeNull();
-
   fireEvent.keyDown(document, { key: "d" });
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "f" });
+  fireEvent.click(screen.getByText("Submit Score"));
 
-  const submitScore = screen.queryByText("Submit Score");
-  expect(submitScore).toBeInTheDocument();
+  const highScores = screen.getByText("High Scores:");
+  expect(highScores).toBeInTheDocument();
 });

@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 export default function RoundCompleted({
   lives, resetGame, inProgress, 
   updateInProgress, exitGame, 
-  word, guessedLetters, updateQuestionIndex}) {
+  word, guessedLetters, updateQuestionIndex, 
+  isLastQuestion, handleCompleteGame}) {
 
   const [lose, setLose] = useState(false)
   const [win, setWin] = useState(false)
@@ -22,8 +23,11 @@ export default function RoundCompleted({
     })) {
       setWin(true)
       updateInProgress(false)
+      if(isLastQuestion()) {
+        handleCompleteGame()
+      }
     }
-  }, [guessedLetters, word, updateInProgress])
+  }, [guessedLetters, word, updateInProgress, isLastQuestion, handleCompleteGame])
 
   const reset = () => {
     setLose(false)

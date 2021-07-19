@@ -11,7 +11,7 @@ import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 import GameCompleted from '../GameCompleted/GameCompleted';
 
-export default function Game({exitGame, user}) {
+export default function Game({exitGame, user, displayScore}) {
   const fakeData = [
     { word: "init", hint: "initialise git" }, 
     { word: "status", hint: "see which files have changed on your local version since the last commit" }, 
@@ -48,12 +48,6 @@ export default function Game({exitGame, user}) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [handleKeyPress]);
-  
-  useEffect(() => {
-    if(questionIndex === (words.length - 1)) {
-      setGameCompleted(true)
-    }
-  }, [questionIndex, words])
 
   const resetGame = () => {
     setLives(6);
@@ -70,6 +64,18 @@ export default function Game({exitGame, user}) {
     resetGame()
   }
 
+  const isLastQuestion = () => {
+    return questionIndex === (words.length - 1)
+  }
+
+  const handleCompleteGame = () => {
+    setGameCompleted(true)
+  }
+
+  const handleDisplayScore = () => {
+    displayScore()
+  }
+
   return (
     <div className="hang-git-container">
       <Header />
@@ -78,14 +84,14 @@ export default function Game({exitGame, user}) {
         guessedLetters={guessedLetters}
         lives={lives}
         updateLives={setLives}
-      />
+        />
       <Hint hint={words[questionIndex].hint} />
       <WrongLetters word={words[questionIndex].word} guessedLetters={guessedLetters} />
       <HiddenWord
         word={words[questionIndex].word}
         guessedLetters={guessedLetters}
         inProgress={inProgress}
-      />
+        />
       {!gameCompleted && <RoundCompleted
         lives={lives}
         resetGame={resetGame}
@@ -95,9 +101,11 @@ export default function Game({exitGame, user}) {
         word={words[questionIndex].word}
         guessedLetters={guessedLetters}
         updateQuestionIndex={handleQuestionComplete}
-      />}
+        isLastQuestion={isLastQuestion}
+        handleCompleteGame={handleCompleteGame}
+        /> }
       {/* Pass score to gamecompleted when finished */}
-      {gameCompleted && <GameCompleted />}
+      {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
       <Popup />
       <Notification showNotification={showNotification} />
     </div>

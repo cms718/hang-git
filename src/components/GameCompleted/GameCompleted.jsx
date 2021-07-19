@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function GameCompleted() {
+export default function GameCompleted({handleDisplayScore}) {
   return (
     <div>
       <h1>Finished!</h1>
-      <button>Submit Score</button>
+      <button onClick={handleDisplayScore}>Submit Score</button>
     </div>
   )
 }
