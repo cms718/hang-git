@@ -1,9 +1,4 @@
-import {
-  fireEvent,
-  getAllByRole,
-  render,
-  screen,
-} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Game from "../Game/Game";
 
 test("reset button when out of lives", () => {
