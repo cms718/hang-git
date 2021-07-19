@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-export default function RoundCompleted({lives, resetGame, inProgress, updateInProgress, exitGame, word, guessedLetters, updateQuestionIndex}) {
+export default function RoundCompleted({
+  lives, resetGame, inProgress, 
+  updateInProgress, exitGame, 
+  word, guessedLetters, updateQuestionIndex}) {
+
   const [lose, setLose] = useState(false)
   const [win, setWin] = useState(false)
 
@@ -12,6 +16,7 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
   }, [lives, updateInProgress])
 
   useEffect(() => {
+    // if user guessed the word
     if (word.split("").every(letter => {
       return guessedLetters.includes(letter)
     })) {
@@ -43,6 +48,12 @@ export default function RoundCompleted({lives, resetGame, inProgress, updateInPr
           <button onClick={nextQuestion}>Next Question</button>
         </div>
         }
+      {/* {gameCompleted &&
+        <div>
+          <p>Well Done!</p>
+          <button onClick={nextQuestion}>Next Question</button>
+        </div>
+        } */}
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Notification from "../Notification/Notification.jsx";
 import Popup from "../Popup/Popup.jsx";
 import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
+import GameCompleted from '../GameCompleted/GameCompleted';
 
 export default function Game({exitGame, user}) {
   const fakeData = [
@@ -24,6 +25,7 @@ export default function Game({exitGame, user}) {
   const [inProgress, setInProgress] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0)
+  const [gameCompleted, setGameCompleted] = useState(false)
 
   const handleKeyPress = useCallback(
     ({ key }) => {
@@ -47,6 +49,12 @@ export default function Game({exitGame, user}) {
     };
   }, [handleKeyPress]);
   
+  useEffect(() => {
+    if(questionIndex === (words.length - 1)) {
+      setGameCompleted(true)
+    }
+  }, [questionIndex, words])
+
   const resetGame = () => {
     setLives(6);
     setGuessedLetters([]);
@@ -78,7 +86,7 @@ export default function Game({exitGame, user}) {
         guessedLetters={guessedLetters}
         inProgress={inProgress}
       />
-      <RoundCompleted
+      {!gameCompleted && <RoundCompleted
         lives={lives}
         resetGame={resetGame}
         updateInProgress={updateInProgress}
@@ -87,7 +95,9 @@ export default function Game({exitGame, user}) {
         word={words[questionIndex].word}
         guessedLetters={guessedLetters}
         updateQuestionIndex={handleQuestionComplete}
-      />
+      />}
+      {/* Pass score to gamecompleted when finished */}
+      {gameCompleted && <GameCompleted />}
       <Popup />
       <Notification showNotification={showNotification} />
     </div>
