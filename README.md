@@ -1,36 +1,42 @@
-# Hang-git
+# Welcome to Hang-Git
 
-A hangman game to help Makers students learn git command-line.
+A hangman game to help Makers students learn git command-line. Git can often be overwhelming for the unitiated, so we looked to help those new to coding learn some git commands whilst having fun.
+
+# Created by:
+* [Charlie Slater](https://github.com/cms718)
+* [Becca Parker](https://github.com/BecaLParker)
+* [Jonny Kelly](https://github.com/JD-Kelly)
+* [Russel Horth](https://github.com/russell-h)
+* [Maria Valero](https://github.com/mvgame74)
+* [Elliot Horton-Stephens](https://github.com/ells101)
 
 
+## Deployment 
+We deployed onto Heroku with a CI/CD pipeline using CircleCI. We set-up our CI/CD pipeline to enable automatic deployment to Heroku once our tests had passed.
+You can find our game [here](https://team-hang-git.herokuapp.com/)
 
-## Prerequisites
+
+## Installing and running the game locally
 
 ```
 git clone https://github.com/cms718/hang-git
-```
-
-## Setup
-
-Navigate to the hang-git directory you've cloned:
-
-```
 cd hang-git
+npm install
+npm start
 ```
 
-and to start the server:
+## Running tests
+
+In order to run tests, from the root directory you can run:
+```
+npm test
+```
+
+And to see test coverage, you can run:
 
 ```
-npm start or yarn start
+npm run test:coverage
 ```
-
-### Running tests
-
-To start testing:
-`yarn test`
-
-To see test coverage:
-`yarn test:coverage`
 
 ## Technologies / Methodologies
 
@@ -40,8 +46,3 @@ We created our base repo using the command
 npx create-react-app hang-git
 ```
 
-### Setting up Ci Circle
-
-![Here is the resource to set up CI in React Apps](https://circleci.com/blog/ci-for-react-apps/?utm_medium=SEM&utm_source=gnb&utm_campaign=SEM-gb-DSA-Eng-emea&utm_content=&utm_term=dynamicSearch-&gclid=CjwKCAjw87SHBhBiEiwAukSeUc4zVuMAe0jvw7E4Ufzv913NVCWkSANPXD61-rxGXPUIpg9FKX3lgRoC2ZAQAvD_BwE)
-
-CI Circle is linked to the owner of the github repo account
