@@ -15,7 +15,7 @@ import ScoreTracker from "../ScoreTracker/ScoreTracker";
 export default function Game({exitGame, user, displayScore, questions}) {
 
   const [words, setWords] = useState([]);
-  const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
+  const [guessedLetters, setGuessedLetters] = useState([]);
   const [lives, setLives] = useState(6);
   const [inProgress, setInProgress] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
@@ -49,6 +49,15 @@ export default function Game({exitGame, user, displayScore, questions}) {
     setWords(questions)
   }, [questions])
 
+  // If word contains a space
+  useEffect(() => {
+    if(words.length > 0 && words[questionIndex].word.split("").includes(" ")) {
+      const guessedLettersCopy = [...guessedLetters]
+      guessedLettersCopy.push(" ")
+      setGuessedLetters(guessedLettersCopy)
+    } 
+  }, [questionIndex, words])
+
   const resetGame = () => {
     setLives(6);
     setGuessedLetters([]);
@@ -76,6 +85,14 @@ export default function Game({exitGame, user, displayScore, questions}) {
     displayScore()
   }
 
+  const currentWord = () => {
+    return words[questionIndex].word
+  }
+
+  const currentHint = () => {
+    return words[questionIndex].hint
+  }
+
   if (!words.length > 0) return "";
 
     
@@ -84,21 +101,21 @@ export default function Game({exitGame, user, displayScore, questions}) {
     <div className="hang-git-container">
       <Header />
       <DisplayLives
-        word={words[questionIndex].word}
+        word={currentWord()}
         guessedLetters={guessedLetters}
         lives={lives}
         updateLives={setLives}
         />
       <ScoreTracker 
-        word={words[questionIndex].word}
+        word={currentWord()}
         guessedLetters={guessedLetters}
         score={score}
         updateScore={setScore}
       />
-      <Hint hint={words[questionIndex].hint} />
-      <WrongLetters word={words[questionIndex].word} guessedLetters={guessedLetters} />
+      <Hint hint={currentHint()} />
+      <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
       <HiddenWord
-        word={words[questionIndex].word}
+        word={currentWord()}
         guessedLetters={guessedLetters}
         inProgress={inProgress}
         />
@@ -108,7 +125,7 @@ export default function Game({exitGame, user, displayScore, questions}) {
         updateInProgress={updateInProgress}
         inProgress={inProgress}
         exitGame={exitGame}
-        word={words[questionIndex].word}
+        word={currentWord()}
         guessedLetters={guessedLetters}
         updateQuestionIndex={handleQuestionComplete}
         isLastQuestion={isLastQuestion}
