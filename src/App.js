@@ -29,7 +29,7 @@ function App() {
       hint: "list all the branches in your repo",
     },
     {
-      word: "branch -b z",
+      word: "checkout -b z",
       level: "hard",
       hint: "create and begin working on a new branch 'z'",
     },
