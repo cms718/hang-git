@@ -10,6 +10,7 @@ import Popup from "../Popup/Popup.jsx";
 import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 import GameCompleted from '../GameCompleted/GameCompleted';
+import ScoreTracker from "../ScoreTracker/ScoreTracker";
 
 export default function Game({exitGame, user, displayScore}) {
   const fakeData = [
@@ -26,6 +27,7 @@ export default function Game({exitGame, user, displayScore}) {
   const [showNotification, setShowNotification] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0)
   const [gameCompleted, setGameCompleted] = useState(false)
+  const [score, setScore] = useState(100)
 
   const handleKeyPress = useCallback(
     ({ key }) => {
@@ -85,6 +87,12 @@ export default function Game({exitGame, user, displayScore}) {
         lives={lives}
         updateLives={setLives}
         />
+      <ScoreTracker 
+        word={words[questionIndex].word}
+        guessedLetters={guessedLetters}
+        score={score}
+        updateScore={setScore}
+      />
       <Hint hint={words[questionIndex].hint} />
       <WrongLetters word={words[questionIndex].word} guessedLetters={guessedLetters} />
       <HiddenWord

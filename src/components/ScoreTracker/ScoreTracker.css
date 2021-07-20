@@ -1,0 +1,6 @@
+.figure-container {
+    fill: transparent;
+    stroke: rgb(7, 7, 7);
+    stroke-width: 4px;
+    stroke-linecap: round;
+  }
