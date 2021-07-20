@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -13,3 +14,13 @@ body, #root {
   margin: 0;
   overflow: hidden; 
 }
+
+/* .hang-git-container {
+  align-items:  center;
+  font-family: 'Futura';
+  font-size: 24px;
+  line-height:  2.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
