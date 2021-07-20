@@ -1,8 +1,20 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Game from "../Game/Game";
 
+const fakeData = [
+  { word: "init", level: "easy", hint: "initialise git" },
+  {
+    word: "status",
+    level: "easy",
+    hint: "see which files have changed on your local version since the last commit",
+  },
+];
+
+beforeEach(() => {
+  render(<Game questions={fakeData} />);
+});
+
 test("reset button when out of lives", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "Q" });
   fireEvent.keyDown(document, { key: "W" });
   fireEvent.keyDown(document, { key: "E" });
@@ -14,7 +26,6 @@ test("reset button when out of lives", () => {
 });
 
 test("clicking next question advances player to next question", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "n" });
   fireEvent.keyDown(document, { key: "t" });

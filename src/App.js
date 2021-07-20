@@ -24,6 +24,11 @@ function App() {
       hint: "see what has changed within files",
     },
     {
+      word: "branch",
+      level: "medium",
+      hint: "list all the branches in your repo",
+    },
+    {
       word: "branch -b z",
       level: "hard",
       hint: "create and begin working on a new branch 'z'",

@@ -3,7 +3,7 @@ import App from "../../App";
 
 test("renders scoreboard when submit score clicked", () => {
   render(<App />);
-  fireEvent.click(screen.getByText("Start Game"));
+  fireEvent.click(screen.getByText("easy"));
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "n" });
   fireEvent.keyDown(document, { key: "t" });

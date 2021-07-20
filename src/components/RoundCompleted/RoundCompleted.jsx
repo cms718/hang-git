@@ -52,12 +52,6 @@ export default function RoundCompleted({
           <button onClick={nextQuestion}>Next Question</button>
         </div>
         }
-      {/* {gameCompleted &&
-        <div>
-          <p>Well Done!</p>
-          <button onClick={nextQuestion}>Next Question</button>
-        </div>
-        } */}
     </div>
   )
 }
