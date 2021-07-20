@@ -75,8 +75,8 @@ export default function Game({exitGame, user, displayScore, questions}) {
   const handleDisplayScore = () => {
     displayScore()
   }
-  
-  if (!words.length > 0) return "loading";
+
+  if (!words.length > 0) return "";
 
     return (
       <div className="hang-git-container">
