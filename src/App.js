@@ -18,6 +18,8 @@ function App() {
 
   const handleExitGame = () => {
     setGameStarted(false);
+    setGameFinished(false);
+    setUser({ name: "Anon", score: 0 });
   };
 
   const handleDisplayScore = () => {
@@ -36,7 +38,7 @@ function App() {
           displayScore={handleDisplayScore}
         />
       )}
-      {gameFinished && <ScoreBoard />}
+      {gameFinished && <ScoreBoard navigateBack={handleExitGame} />}
     </>
   );
 }
