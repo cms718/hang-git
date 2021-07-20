@@ -61,7 +61,7 @@ function App() {
   return (
     <>
       {!gameStarted && !gameFinished && (
-        <HomeScreen startGame={handleStartGame} />
+        <HomeScreen startGame={handleStartGame} allQuestions={fakeData} />
       )}
       {gameStarted && !gameFinished && (
         <Game
