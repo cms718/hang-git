@@ -78,8 +78,10 @@ export default function Game({exitGame, user, displayScore, questions}) {
 
   if (!words.length > 0) return "";
 
-    return (
-      <div className="hang-git-container">
+    
+  return (
+    <>
+    <div className="hang-git-container">
       <Header />
       <DisplayLives
         word={words[questionIndex].word}
@@ -114,9 +116,16 @@ export default function Game({exitGame, user, displayScore, questions}) {
         /> }
       {/* Pass score to gamecompleted when finished */}
       {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
-      <Popup />
-      <Notification showNotification={showNotification} />
+      {/* <Popup /> */}
+      {/* <Notification showNotification={showNotification} /> */}
+    </div> 
+    <div className='test'>
+  
+    <Notification showNotification={showNotification} />
+  
     </div>
+    </>
+    
   )
 }
 
