@@ -1,14 +1,25 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Game from "../Game/Game";
 
+const fakeData = [
+  { word: "init", level: "easy", hint: "initialise git" },
+  {
+    word: "status",
+    level: "easy",
+    hint: "see which files have changed on your local version since the last commit",
+  },
+];
+
+beforeEach(() => {
+  render(<Game questions={fakeData} />);
+});
+
 test("renders all underscores if guess incorrect", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "A" });
   const letters = screen.getAllByText("_");
   expect(letters.length).toBe(4);
 });
 test("renders letters if guess correct", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "i" });
   const letters = screen.getAllByText("_");
   const correctLetters = screen.getAllByText("i");
@@ -16,7 +27,6 @@ test("renders letters if guess correct", () => {
   expect(correctLetters.length).toBe(2);
 });
 test("prevents keypress when user wins", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "n" });
   fireEvent.keyDown(document, { key: "t" });
@@ -25,7 +35,6 @@ test("prevents keypress when user wins", () => {
   expect(invalidGuess).toBeNull();
 });
 test("prevents keypress when user loses", () => {
-  render(<Game />);
   fireEvent.keyDown(document, { key: "q" });
   fireEvent.keyDown(document, { key: "w" });
   fireEvent.keyDown(document, { key: "e" });

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import Categories from '../Categories/Categories'
 
-export default function HomeScreen({startGame}) {
+export default function HomeScreen({handleStartGame, allQuestions}) {
 
   const [name, setName] = useState("")
 
@@ -8,8 +9,8 @@ export default function HomeScreen({startGame}) {
     setName(target.value)
   }
 
-  const handleStartGame = () => {
-    startGame(name)
+  const startGame = (difficulty) => {
+    handleStartGame(name, difficulty)
   }
   
   return (
@@ -19,7 +20,7 @@ export default function HomeScreen({startGame}) {
       Enter Name:      
       <input type="text" value={name} onChange={(event) => handleChange(event)}/>
     </label><br/>
-    <button onClick={handleStartGame}>Start Game</button>
+    <Categories startGame={startGame} allQuestions={allQuestions}/>
   </div>
   )
 }

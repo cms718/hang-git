@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import App from "../../App";
-import Game from "../Game/Game";
+import Header from "../Header/Header";
 
 test("renders Header", () => {
-  render(<Game />);
+  render(<Header />);
   const myHeader = screen.getByText(/HANG-GIT/i);
   expect(myHeader).toBeInTheDocument();
 });
