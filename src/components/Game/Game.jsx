@@ -12,15 +12,9 @@ import RoundCompleted from "../RoundCompleted/RoundCompleted";
 import GameCompleted from '../GameCompleted/GameCompleted';
 import ScoreTracker from "../ScoreTracker/ScoreTracker";
 
-export default function Game({exitGame, user, displayScore}) {
-  const fakeData = [
-    { word: "init", hint: "initialise git" }, 
-    { word: "status", hint: "see which files have changed on your local version since the last commit" }, 
-    { word: "pull", hint: "update what’s on your local version to match what’s on the Github version" }, 
-    { word: "diff", hint: "see what has changed within files" },
-  ];
-  
-  const [words, setWords] = useState(fakeData);
+export default function Game({exitGame, user, displayScore, questions}) {
+
+  const [words, setWords] = useState([]);
   const [guessedLetters, setGuessedLetters] = useState([]); // == correctLetters
   const [lives, setLives] = useState(6);
   const [inProgress, setInProgress] = useState(true);
@@ -50,6 +44,10 @@ export default function Game({exitGame, user, displayScore}) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [handleKeyPress]);
+
+  useEffect(() => {
+    setWords(questions)
+  }, [questions])
 
   const resetGame = () => {
     setLives(6);
@@ -81,6 +79,10 @@ export default function Game({exitGame, user, displayScore}) {
   return (
     <>
     <div className="hang-git-container">
+
+  if (!words.length > 0) return "";
+
+
       <Header />
       <DisplayLives
         word={words[questionIndex].word}

@@ -1,12 +1,22 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-// const header = require('../Header/.jsx');
 import Notification from "../Notification/Notification";
 import Game from "../Game/Game";
 
-test("checks if letter has been repeated on a correct letter", () => {
-  render(<Game />);
+const fakeData = [
+  { word: "init", level: "easy", hint: "initialise git" },
+  {
+    word: "status",
+    level: "easy",
+    hint: "see which files have changed on your local version since the last commit",
+  },
+];
 
+beforeEach(() => {
+  render(<Game questions={fakeData} />);
+});
+
+test("checks if letter has been repeated on a correct letter", () => {
   const lives = screen.getByText("6");
   expect(lives).toBeInTheDocument();
   fireEvent.keyDown(document, { key: "i" });
@@ -22,8 +32,6 @@ test("checks if letter has been repeated on a correct letter", () => {
 });
 
 test("checks if letter has been repeated on an incorrect letter", () => {
-  render(<Game />);
-
   const lives = screen.getByText("6");
   expect(lives).toBeInTheDocument();
   fireEvent.keyDown(document, { key: "a" });
