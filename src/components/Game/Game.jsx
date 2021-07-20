@@ -78,8 +78,9 @@ export default function Game({exitGame, user, displayScore, questions}) {
 
 Notification-bar
   
-    <>
+    
     return (
+    <>
     <div className="hang-git-container">
     if (!words.length > 0) return "";
       
