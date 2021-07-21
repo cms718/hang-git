@@ -98,49 +98,57 @@ export default function Game({exitGame, user, displayScore, questions}) {
     
   return (
     <>
-    <div className="hang-git-container">
+    <div className="page-container">
       <Header />
-      <DisplayLives
-        word={currentWord()}
-        guessedLetters={guessedLetters}
-        lives={lives}
-        updateLives={setLives}
-        />
-      <ScoreTracker 
-        word={currentWord()}
-        guessedLetters={guessedLetters}
-        score={score}
-        updateScore={setScore}
-      />
-      <Hint hint={currentHint()} />
-      <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
-      <HiddenWord
-        word={currentWord()}
-        guessedLetters={guessedLetters}
-        inProgress={inProgress}
-        />
-      {!gameCompleted && <RoundCompleted
-        lives={lives}
-        resetGame={resetGame}
-        updateInProgress={updateInProgress}
-        inProgress={inProgress}
-        exitGame={exitGame}
-        word={currentWord()}
-        guessedLetters={guessedLetters}
-        updateQuestionIndex={handleQuestionComplete}
-        isLastQuestion={isLastQuestion}
-        handleCompleteGame={handleCompleteGame}
-        /> }
-      {/* Pass score to gamecompleted when finished */}
-      {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
-      {/* <Popup /> */}
-      {/* <Notification showNotification={showNotification} /> */}
+      <div className="hang-git-container">
+        <div className="row">
+          <div className="column-left">
+            <DisplayLives
+            word={currentWord()}
+            guessedLetters={guessedLetters}
+            lives={lives}
+            updateLives={setLives}
+            />
+          <ScoreTracker 
+            word={currentWord()}
+            guessedLetters={guessedLetters}
+            score={score}
+            updateScore={setScore}
+          />
+          </div>
+          <div className="column-right">
+            <Hint hint={currentHint()} />
+            <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
+            <HiddenWord
+              word={currentWord()}
+              guessedLetters={guessedLetters}
+              inProgress={inProgress}
+              />
+            {!gameCompleted && <RoundCompleted
+              lives={lives}
+              resetGame={resetGame}
+              updateInProgress={updateInProgress}
+              inProgress={inProgress}
+              exitGame={exitGame}
+              word={currentWord()}
+              guessedLetters={guessedLetters}
+              updateQuestionIndex={handleQuestionComplete}
+              isLastQuestion={isLastQuestion}
+              handleCompleteGame={handleCompleteGame}
+              /> }
+            {/* Pass score to gamecompleted when finished */}
+            {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
+          </div>
+        </div>
+        
+        {/* <Popup /> */}
+        {/* <Notification showNotification={showNotification} /> */}
+      </div>
     </div> 
     <div className='test'>
-  
-    <Notification showNotification={showNotification} />
-  
+      <Notification showNotification={showNotification} />
     </div>
+    
     </>
     
   )

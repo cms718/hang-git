@@ -1,26 +1,66 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .hang-git-container {
-  align-items:  center;
-  height: 100;
-  font-family: 'Futura';
-  font-size: 24px;
-  line-height:  2.2em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  font-family: 'Futura';
+  font-size: 24px;
+  line-height:  2.2em;
+  height: 80vh;
 }
-
 
 body, #root {
-  
- 
   /* overflow: hidden; */
   font-family: Arial, Helvetica, sans-serif;
-  
-  
 }
 
-.test{
-
-  /* overflow: hidden; */
+.home{
+  margin: 10px;
+  padding: 10px;
+  font-family: 'Futura';
+  font-size: 24px;
+  line-height:  2.2em;
 }
+
+/* Container for flexboxes */
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: 'Futura';
+  height: 100%;
+}
+
+/* Create three unequal columns that sits next to each other */
+
+/* Left column */
+.column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%; 
+}
+
+/* Right column */
+.column-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+
 
