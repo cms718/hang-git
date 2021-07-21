@@ -1,5 +1,9 @@
 export const questionData = [
-  { word: "init", level: "easy", hint: "initialise git" },
+  { 
+  word: "init", 
+  level: "easy", 
+  hint: "initialise git" 
+  },
   {
     word: "status",
     level: "easy",
