@@ -3,11 +3,9 @@ import { useEffect } from 'react';
 import './DisplayLives.css';
 
 
-
 const getColor = (lives) => {
   return (lives >3) ? 'green': 'rgba(185, 28, 28, 0.884)';
 };
-
 
 
 export default function DisplayLives({word, guessedLetters, lives, updateLives}) {
@@ -19,6 +17,10 @@ export default function DisplayLives({word, guessedLetters, lives, updateLives})
         updateLives(lives => lives - 1)
       }
   }, [guessedLetters, word, updateLives])
+
+
+
+
 
   return (
     <div>
