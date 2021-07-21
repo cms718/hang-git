@@ -80,4 +80,31 @@ export const questionData = [
     level: "hard",
     hint: "delete a branch named 'z' from your local version of the repo",
   },
+
+  //Even harder
+  {
+    word: "revert <commit number>",
+    level: "even harder",
+    hint: "create a new commit that undoes all of the changes made in a specified commit",
+  },
+  {
+    word: "reset --hard",
+    level: "even harder",
+    hint: "empty any staged changes AND revert working directory to the last committed version",
+  },
+  {
+    word: "commit --amend",
+    level: "even harder",
+    hint: "add a missed change (that you’ve now staged) into the previous commit",
+  },
+  {
+    word: "grep “foo“",
+    level: "even harder",
+    hint: "search the working directory for foo",
+  },
+  {
+    word: "stash",
+    level: "even harder",
+    hint: "put your local changes to one side because you plan to overwrite them by pulling a different version down from the remote",
+  },
 ];
