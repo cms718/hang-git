@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Categories from '../Categories/Categories'
 import Header from "../Header/Header";
+import './HomeScreen.css';
 
 export default function HomeScreen({handleStartGame, allQuestions}) {
 
@@ -18,7 +19,7 @@ export default function HomeScreen({handleStartGame, allQuestions}) {
     <div className="home">
       <Header />
       <h1>Play Game</h1>
-      <label>
+      <label className='test'>
         Enter Name:      
         <input type="text" value={name} onChange={(event) => handleChange(event)}/>
       </label><br/>
