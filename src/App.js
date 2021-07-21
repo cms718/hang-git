@@ -4,6 +4,7 @@ import Game from "./components/Game/Game";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 import {questionData} from "./QuestionData.js"
+import { userScores } from "./UserScores";
 
 function App() {
 
@@ -48,7 +49,7 @@ function App() {
           questions={questions}
         />
       )}
-      {gameFinished && <ScoreBoard navigateBack={handleExitGame} />}
+      {gameFinished && <ScoreBoard navigateBack={handleExitGame} userScores={userScores} />}
     </>
   );
 }

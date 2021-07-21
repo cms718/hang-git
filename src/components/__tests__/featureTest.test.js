@@ -31,7 +31,7 @@ test("renders scoreboard when submit score clicked", () => {
   fireEvent.keyDown(document, { key: "h" });
   fireEvent.click(screen.getByText("Submit Score"));
 
-  const highScores = screen.getByText("High Scores:");
+  const highScores = screen.getByText("High Scores");
   expect(highScores).toBeInTheDocument();
   fireEvent.click(screen.getByText("Back"));
 

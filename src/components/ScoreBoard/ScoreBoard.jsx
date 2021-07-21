@@ -1,18 +1,16 @@
 import React from 'react'
-import {userScores} from '../../UserScores'
+//userScores currently hardcoded, needs database
 
-export default function ScoreBoard({navigateBack}) {
+export default function ScoreBoard({navigateBack, userScores}) {
   return (
     <div>
       <button onClick={navigateBack}>Back</button>
-      <h1>High Scores: </h1>
-      
-      {userScores}
-      
-      {/* {/ Map over and return list of <Player /> components /}
+      <h1>High Scores</h1>
+      <ol>
       {userScores.map((player) => {
-      return <User />
-      })} */}
+        return <li key={player.username}>{player.username.toUpperCase()} : {player.score}</li>
+      })}
+      </ol>
     </div>
   )
 }
