@@ -23,6 +23,12 @@ test("renders scoreboard when submit score clicked", () => {
   fireEvent.keyDown(document, { key: "d" });
   fireEvent.keyDown(document, { key: "i" });
   fireEvent.keyDown(document, { key: "f" });
+  fireEvent.click(screen.getByText("Next Question"));
+
+  fireEvent.keyDown(document, { key: "p" });
+  fireEvent.keyDown(document, { key: "u" });
+  fireEvent.keyDown(document, { key: "s" });
+  fireEvent.keyDown(document, { key: "h" });
   fireEvent.click(screen.getByText("Submit Score"));
 
   const highScores = screen.getByText("High Scores:");
