@@ -6,7 +6,6 @@ import HiddenWord from "../HiddenWord/HiddenWord.jsx";
 import WrongLetters from "../WrongLetters/WrongLetters.jsx";
 import "../../App.css";
 import Notification from "../Notification/Notification.jsx";
-import Popup from "../Popup/Popup.jsx";
 import { showNotification as show } from "../../helpers/helpers";
 import RoundCompleted from "../RoundCompleted/RoundCompleted";
 import GameCompleted from '../GameCompleted/GameCompleted';
@@ -119,6 +118,9 @@ export default function Game({exitGame, user, displayScore, questions}) {
           <div className="column-right">
             <Hint hint={currentHint()} />
             <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
+            <div className='test'>
+      <Notification showNotification={showNotification} />
+            </div>
             <HiddenWord
               word={currentWord()}
               guessedLetters={guessedLetters}
@@ -140,15 +142,8 @@ export default function Game({exitGame, user, displayScore, questions}) {
             {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
           </div>
         </div>
-        
-        {/* <Popup /> */}
-        {/* <Notification showNotification={showNotification} /> */}
       </div>
     </div> 
-    <div className='test'>
-      <Notification showNotification={showNotification} />
-    </div>
-    
     </>
     
   )

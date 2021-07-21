@@ -17,6 +17,7 @@ beforeEach(() => {
 });
 
 test("checks if letter has been repeated on a correct letter", () => {
+
   const lives = screen.getByText("6");
   expect(lives).toBeInTheDocument();
   fireEvent.keyDown(document, { key: "i" });
