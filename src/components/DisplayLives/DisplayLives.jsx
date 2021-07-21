@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 import './DisplayLives.css';
 
 
+
+
+
 export default function DisplayLives({word, guessedLetters, lives, updateLives}) {
   
   useEffect(() => {
@@ -33,7 +36,18 @@ export default function DisplayLives({word, guessedLetters, lives, updateLives})
         {lives <= 0 && <line x1="140" y1="150" x2="160" y2="180" data-testid="leg2"/>}
       </svg>
       <br></br>
+      <div>
+
       <span>Lives remaining:</span> <span>{lives}</span>
+      </div>
     </div>
   )
 }
+
+
+
+
+
+
+
+

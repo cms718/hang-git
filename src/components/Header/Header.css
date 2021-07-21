@@ -21,9 +21,11 @@
 }
 
 .Header img {
+  
+  display: flex;
   margin: auto;
   padding: 5px;
-  width: 20%;
-  height: 145px;
+  width: 15%;
+  height: 15vh;
   border-radius: 50%;
 }
