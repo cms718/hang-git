@@ -119,6 +119,9 @@ export default function Game({exitGame, user, displayScore, questions}) {
           <div className="column-right">
             <Hint hint={currentHint()} />
             <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
+            <div className='test'>
+      <Notification showNotification={showNotification} />
+            </div>
             <HiddenWord
               word={currentWord()}
               guessedLetters={guessedLetters}
@@ -145,9 +148,9 @@ export default function Game({exitGame, user, displayScore, questions}) {
         {/* <Notification showNotification={showNotification} /> */}
       </div>
     </div> 
-    <div className='test'>
+    {/* <div className='test'>
       <Notification showNotification={showNotification} />
-    </div>
+    </div> */}
     
     </>
     
