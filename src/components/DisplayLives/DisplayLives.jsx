@@ -5,7 +5,7 @@ import './DisplayLives.css';
 
 
 const getColor = (lives) => {
-  return (lives >3) ? 'green': 'red';
+  return (lives >3) ? 'green': 'rgba(185, 28, 28, 0.884)';
 };
 
 

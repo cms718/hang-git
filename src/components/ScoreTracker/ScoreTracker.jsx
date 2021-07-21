@@ -2,6 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import './ScoreTracker.css';
 
+
+const getColor = (score) => {
+  return (score >=90) ? 'green': 'blue';
+};
+
 export default function ScoreTracker ({word, guessedLetters, score, updateScore}) {
     
     useEffect(() => {
@@ -14,7 +19,7 @@ export default function ScoreTracker ({word, guessedLetters, score, updateScore}
 
     return (
         <div>
-            <p>Your Score: {score}</p>
+            <span>Your Score:</span> <span style={{ color: getColor(score) }} >{score}</span>
         </div>
     )
 }
