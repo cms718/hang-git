@@ -3,7 +3,7 @@ import "./App.css";
 import Game from "./components/Game/Game";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
-import {fakeData} from "./QuestionData.js"
+import {questionData} from "./QuestionData.js"
 
 function App() {
 
@@ -32,13 +32,13 @@ function App() {
   };
 
   const getQuestions = (difficulty) => {
-    return fakeData.filter((question) => question.level === difficulty);
+    return questionData.filter((question) => question.level === difficulty);
   };
 
   return (
     <>
       {!gameStarted && !gameFinished && (
-        <HomeScreen handleStartGame={handleStartGame} allQuestions={fakeData} />
+        <HomeScreen handleStartGame={handleStartGame} allQuestions={questionData} />
       )}
       {gameStarted && !gameFinished && (
         <Game

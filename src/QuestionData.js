@@ -1,4 +1,4 @@
-export const fakeData = [
+export const questionData = [
   { word: "init", level: "easy", hint: "initialise git" },
   {
     word: "status",
