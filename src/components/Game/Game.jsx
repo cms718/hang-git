@@ -98,11 +98,11 @@ export default function Game({exitGame, user, displayScore, questions}) {
     
   return (
     <>
-    <div class="page-container">
+    <div className="page-container">
       <Header />
       <div className="hang-git-container">
-        <div class="row">
-          <div class="column-left">
+        <div className="row">
+          <div className="column-left">
             <DisplayLives
             word={currentWord()}
             guessedLetters={guessedLetters}
@@ -116,7 +116,7 @@ export default function Game({exitGame, user, displayScore, questions}) {
             updateScore={setScore}
           />
           </div>
-          <div class="column-right">
+          <div className="column-right">
             <Hint hint={currentHint()} />
             <WrongLetters word={currentWord()} guessedLetters={guessedLetters} />
             <HiddenWord
