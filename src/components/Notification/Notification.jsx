@@ -10,4 +10,3 @@ const Notification = ({ showNotification }) => {
 
 export default Notification
 
-/// IN REACT, why do we use " ` " ????
