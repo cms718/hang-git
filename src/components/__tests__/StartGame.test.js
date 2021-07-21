@@ -4,6 +4,6 @@ import App from "../../App";
 test("renders hint text", () => {
   render(<App />);
   fireEvent.click(screen.getByText("easy"));
-  const title = screen.getByText("HANG-GIT");
+  const title = screen.getByText("Hang-Git");
   expect(title).toBeInTheDocument();
 });

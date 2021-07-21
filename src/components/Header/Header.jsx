@@ -5,7 +5,7 @@ import logo from './catlogo.png';
 const Header = () => {
   return (
     <div className="Header">
-      <h1>HANG-GIT</h1>
+      <h1>Hang-Git</h1>
       <div className="Header-Subheader">---Git---Helper-Game</div>
       <img className="logo"src={logo}/>
     </div>
