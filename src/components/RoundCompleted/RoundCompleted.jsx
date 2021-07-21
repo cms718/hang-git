@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+
+import ConfettiExplosion from '@reonomy/react-confetti-explosion';
+
 export default function RoundCompleted({
   lives, resetGame, inProgress, 
   updateInProgress, exitGame, 
@@ -8,6 +11,8 @@ export default function RoundCompleted({
 
   const [lose, setLose] = useState(false)
   const [win, setWin] = useState(false)
+
+  const [isExploding, setIsExploding] = React.useState(true);
 
   useEffect(() => {
     if (lives === 0) {
@@ -49,6 +54,7 @@ export default function RoundCompleted({
       {win &&
         <div>
           <p>Well Done!</p>
+          {isExploding && <ConfettiExplosion />}
           <button onClick={nextQuestion}>Next Question</button>
         </div>
         }
