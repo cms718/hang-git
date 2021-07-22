@@ -82,4 +82,21 @@ body, #root {
   border: 1px solid rgb(61, 112, 240);
 }
 
+.userInput {
+  background-color: rgb(249, 251, 247);
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  border: 1px solid rgb(88, 89, 91);
+  border-radius: 6px;
+  box-shadow: rgba(225, 288, 232, 0.2);
+  color: rgb(86, 88, 90);
+  font-size: 20px;
+  align-content: flex-end;
+  line-height: 20px;
+  outline: none;
+  padding: 10px 12px;
+  text-align: left;
+  width: 30%;
+}
+
 
