@@ -19,7 +19,7 @@ export default function ScoreBoard({navigateBack}) {
   
   return (
     <div>
-      <button onClick={navigateBack}>Back</button>
+      <button className="btn-category" onClick={navigateBack}>Back</button>
       <h1>High Scores: </h1>
       <ol>
       {players.map((player, index) => {

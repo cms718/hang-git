@@ -20,7 +20,7 @@ export default function GameCompleted({handleDisplayScore, user, score}) {
   return (
     <div>
       <h1>Finished!</h1>
-      <button onClick={() => handleComplete()}>Submit Score</button>
+      <button className="btn-category" onClick={() => handleComplete()}>Submit Score</button>
     </div>
   )
 }
