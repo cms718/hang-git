@@ -18,14 +18,21 @@ export default function ScoreBoard({navigateBack}) {
   if (!players) return "Loading highscores..."
   
   return (
-    <div>
+    
+    <div className="home">
       <button className="btn-category" onClick={navigateBack}>Back</button>
-      <h1>High Scores: </h1>
-      <ol>
-      {players.map((player, index) => {
-        return <li key={index}>{player.name.toUpperCase()} : {player.score} - {player.difficulty.toUpperCase()} </li>
-      })}
-      </ol>
+      <h1 className="test">High Scores: </h1>
+      <table align="center" >
+        <tr>
+          <ol>
+            <td classname="scoreBoard">
+            {players.map((player, index) => {
+              return <li key={index}>{player.name.toUpperCase()} : {player.score} - {player.difficulty.toUpperCase()} </li>
+            })}
+            </td>
+          </ol>
+        </tr>
+      </table>
     </div>
   )
 }
