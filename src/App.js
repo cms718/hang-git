@@ -41,7 +41,7 @@ function App() {
       setPlayers(data)
     }
     getPlayers()
-  }, [gameFinished])
+  }, [URL, gameFinished])
 
   const getQuestions = (difficulty) => {
     return questionData.filter((question) => question.level === difficulty);
