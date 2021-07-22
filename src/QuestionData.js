@@ -43,12 +43,12 @@ export const questionData = [
     hint: "stage all changes in the current directory for the next commit" 
   },
   { 
-    word: "commit -m “<message>”", 
+    word: 'commit -m "<message>"', 
     level: "medium", 
     hint: "commit the staged snapshot" 
   },
   { 
-    word: "commit -am “<message>”", 
+    word: 'commit -am "<message>"', 
     level: "medium", 
     hint: "stage and commit changes in one step" 
   },
@@ -98,7 +98,7 @@ export const questionData = [
     hint: "add a missed change (that you’ve now staged) into the previous commit",
   },
   {
-    word: "grep “foo“",
+    word: 'grep "foo"',
     level: "even harder",
     hint: "search the working directory for foo",
   },

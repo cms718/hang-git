@@ -12,7 +12,9 @@ export default function RoundCompleted({
   const [lose, setLose] = useState(false)
   const [win, setWin] = useState(false)
 
+
   const [isExploding, setIsExploding] = React.useState(true);
+
 
   useEffect(() => {
     if (lives === 0) {
@@ -20,6 +22,8 @@ export default function RoundCompleted({
       updateInProgress(false)
     }
   }, [lives, updateInProgress])
+
+
 
   useEffect(() => {
     // if user guessed the word

@@ -4,6 +4,7 @@ import Game from "./components/Game/Game";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 import {questionData} from "./QuestionData.js"
+import { userScores } from "./UserScores";
 
 function App() {
 
@@ -13,10 +14,12 @@ function App() {
   const [questions, setQuestions] = useState();
 
   const handleStartGame = (name, difficulty) => {
-    const userCopy = { ...user };
-    userCopy.name = name;
+    if (name) {
+      const userCopy = { ...user };
+      userCopy.name = name;
+      setUser(userCopy);
+    }
 
-    setUser(userCopy);
     setQuestions(getQuestions(difficulty));
     setGameStarted(true);
   };
@@ -48,7 +51,7 @@ function App() {
           questions={questions}
         />
       )}
-      {gameFinished && <ScoreBoard navigateBack={handleExitGame} />}
+      {gameFinished && <ScoreBoard navigateBack={handleExitGame} userScores={userScores} />}
     </>
   );
 }

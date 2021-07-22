@@ -3,14 +3,24 @@ import { useEffect } from 'react';
 import './DisplayLives.css';
 
 
+const getColor = (lives) => {
+  return (lives >3) ? 'green': 'rgba(185, 28, 28, 0.884)';
+};
+
+
 export default function DisplayLives({word, guessedLetters, lives, updateLives}) {
   
   useEffect(() => {
+
     const lastLetter = guessedLetters[guessedLetters.length - 1]
       if(lastLetter && lives > 0 && !word.split("").includes(lastLetter)) {
         updateLives(lives => lives - 1)
       }
   }, [guessedLetters, word, updateLives])
+
+
+
+
 
   return (
     <div>
@@ -33,7 +43,17 @@ export default function DisplayLives({word, guessedLetters, lives, updateLives})
         {lives <= 0 && <line x1="140" y1="150" x2="160" y2="180" data-testid="leg2"/>}
       </svg>
       <br></br>
-      <span>Lives remaining:</span> <span>{lives}</span>
+      <div>
+      <span>Lives remaining:</span> <span style={{ color: getColor(lives) }}>{lives}</span>
+      </div>
     </div>
   )
 }
+
+
+
+
+
+
+
+
