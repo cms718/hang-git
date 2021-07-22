@@ -8,7 +8,7 @@ export default function Categories({allQuestions, startGame}) {
   return (
     <div>
       {uniqueCategories.map((category, index) => {
-        return <button key={index}className="btn-category" onClick={() => startGame(category)}>{category}</button>
+        return <button key={index}className="btn-category" id={category} onClick={() => startGame(category)}>{category}</button>
       })}
     </div>
   )
