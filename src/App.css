@@ -31,7 +31,9 @@ body, #root {
   padding: 10px;
   font-family: 'Futura';
   font-size: 24px;
-  line-height:  2.2em;
+  line-height:  2.5em;
+  text-align: center;
+  align-items: center;
 }
 
 /* Container for flexboxes */
@@ -64,4 +66,9 @@ body, #root {
   height: 100%;
 }
 
+.scoreBoard {
+  margin: 5 px;
+  padding: 5px rgb(61, 112, 240) ;
+  border: 1px solid rgb(61, 112, 240);
+}
 
