@@ -23,7 +23,7 @@ export default function ScoreBoard({navigateBack}) {
       <h1>High Scores: </h1>
       <ol>
       {players.map((player, index) => {
-        return <li key={index}>{player.name.toUpperCase()} : {player.score}</li>
+        return <li key={index}>{player.name.toUpperCase()} : {player.score} - {player.difficulty.toUpperCase()} </li>
       })}
       </ol>
     </div>
