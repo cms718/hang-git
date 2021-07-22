@@ -18,8 +18,9 @@ export default function ScoreBoard({navigateBack}) {
   if (!players) return "Loading highscores..."
   
   return (
+    
     <div className="home">
-      <button onClick={navigateBack}>Back</button>
+      <button className="btn-category" onClick={navigateBack}>Back</button>
       <h1 className="test">High Scores: </h1>
       <table align="center" >
         <tr>

@@ -66,9 +66,20 @@ body, #root {
   height: 100%;
 }
 
+.btn-category {background-color: #f7f7ff; 
+  color: rgb(93, 88, 88); 
+  border: 2px solid hsl(120, 3%, 87%);
+  border-radius: 15px 15px 15px;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;}
+
 .scoreBoard {
   margin: 5 px;
   padding: 5px rgb(61, 112, 240) ;
   border: 1px solid rgb(61, 112, 240);
 }
+
 

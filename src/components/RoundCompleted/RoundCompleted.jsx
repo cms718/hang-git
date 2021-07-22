@@ -52,14 +52,15 @@ export default function RoundCompleted({
     <div>
       {lose && !inProgress &&
       <div>
-        <button onClick={reset}>Try again</button>
-        <button onClick={exitGame}>Exit</button>
+        <button className="btn-category" onClick={reset}>Try again</button>
+        <button className="btn-category" onClick={exitGame}>Exit</button>
       </div>}
       {win &&
         <div>
           <p>Well Done!</p>
+
           {isExploding && <ConfettiExplosion />}
-          <button onClick={nextQuestion}>Next Question</button>
+          <button className="btn-category" onClick={nextQuestion}>Next Question</button>
         </div>
         }
     </div>
