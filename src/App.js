@@ -14,10 +14,12 @@ function App() {
   const [questions, setQuestions] = useState();
 
   const handleStartGame = (name, difficulty) => {
-    const userCopy = { ...user };
-    userCopy.name = name;
+    if (name) {
+      const userCopy = { ...user };
+      userCopy.name = name;
+      setUser(userCopy);
+    }
 
-    setUser(userCopy);
     setQuestions(getQuestions(difficulty));
     setGameStarted(true);
   };
