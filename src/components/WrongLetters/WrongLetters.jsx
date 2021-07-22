@@ -2,6 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+const getColor = (wrongLetters) => {
+  return 'rgba(185, 28, 28, 0.884)';
+};
+
+
+
 export default function WrongLetters({word, guessedLetters}) {
   const [wrongLetters, setWrongLetters] = useState([]);
 
@@ -19,7 +25,7 @@ export default function WrongLetters({word, guessedLetters}) {
   }, [guessedLetters, word])
   return (
     <div>
-      <p>{wrongLetters}</p>
+    <span style={{ color: getColor(wrongLetters) }}>{wrongLetters}</span>
     </div>
   )
 }
