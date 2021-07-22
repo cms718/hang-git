@@ -1,5 +1,6 @@
 .btn-category {
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 #easy {
