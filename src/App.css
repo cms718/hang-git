@@ -64,4 +64,13 @@ body, #root {
   height: 100%;
 }
 
+.btn-category {background-color: #f7f7ff; 
+  color: rgb(93, 88, 88); 
+  border: 2px solid #dddfdd;
+  border-radius: 30px 30px 30px;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;}
 
