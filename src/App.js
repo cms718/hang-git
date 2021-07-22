@@ -32,7 +32,7 @@ function App() {
 
   const [players, setPlayers] = useState()
 
-  const URL = process.env.REACT_APP_URL || "localhost:5000/players"
+  const URL = process.env.REACT_APP_URL
 
   useEffect(() => {
     const getPlayers = async () => {
