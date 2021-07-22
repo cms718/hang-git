@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { userScores } from '../../UserScores';
 
-export default function ScoreBoard({navigateBack, userScores}) {
-  const [players, setPlayers] = useState(userScores)
+export default function ScoreBoard({navigateBack}) {
+  const [players, setPlayers] = useState()
 
   const URL = process.env.REACT_APP_URL || "localhost:5000/players"
 
@@ -15,14 +15,15 @@ export default function ScoreBoard({navigateBack, userScores}) {
     getPlayers()
   }, [URL])
 
-  if (!players) return "Error Loading Players"
+  if (!players) return "Loading highscores..."
+  
   return (
     <div>
       <button onClick={navigateBack}>Back</button>
       <h1>High Scores: </h1>
       <ol>
-      {players.map((player) => {
-        return <li key={player.username}>{player.username.toUpperCase()} : {player.score}</li>
+      {players.map((player, index) => {
+        return <li key={index}>{player.name.toUpperCase()} : {player.score}</li>
       })}
       </ol>
     </div>
