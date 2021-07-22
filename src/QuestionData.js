@@ -83,7 +83,7 @@ export const questionData = [
 
   //Even harder
   {
-    word: "revert <commit number>",
+    word: "revert <commit sha>",
     level: "even harder",
     hint: "create a new commit that undoes all of the changes made in a specified commit",
   },
