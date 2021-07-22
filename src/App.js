@@ -4,7 +4,7 @@ import Game from "./components/Game/Game";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 import { questionData } from "./QuestionData.js";
-import { userScores } from "./UserScores";
+import Players from "./components/PlayerScores/PlayerScores"
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -52,7 +52,7 @@ function App() {
         />
       )}
       {gameFinished && (
-        <ScoreBoard navigateBack={handleExitGame} userScores={userScores} />
+        <ScoreBoard navigateBack={handleExitGame} players={players} />
       )}
     </>
   );

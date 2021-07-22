@@ -22,7 +22,7 @@ export default function HomeScreen({handleStartGame, allQuestions}) {
       <label className='test'>
         Name:
       </label>
-      <input className='userInput' placeHolder='Enter your name here... ' type="text" value={name} onChange={(event) => handleChange(event)}/>
+      <input className='userInput' placeholder='Enter your name here... ' type="text" value={name} onChange={(event) => handleChange(event)}/>
       <br/>
       <Categories startGame={startGame} allQuestions={allQuestions}/>
     </div>
