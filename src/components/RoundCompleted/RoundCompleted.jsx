@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import './RoundCompleted.css'
 
 import ConfettiExplosion from '@reonomy/react-confetti-explosion';
 
@@ -52,8 +52,8 @@ export default function RoundCompleted({
     <div>
       {lose && !inProgress &&
       <div>
-        <button className="btn-category" onClick={reset}>Try again</button>
-        <button className="btn-category" onClick={exitGame}>Exit</button>
+        <button className="btn-category" id="reset" onClick={reset}>Try again</button>
+        <button className="btn-category" id="exit" onClick={exitGame}>Exit</button>
       </div>}
       {win &&
         <div>
