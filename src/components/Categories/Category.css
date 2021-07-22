@@ -1,6 +1,9 @@
 .btn-category {
   text-transform: capitalize;
   cursor: pointer;
+  background-color: #2ea44f;
+  color: white;
+  border-radius: 0.375rem;
 }
 
 #easy {
