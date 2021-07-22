@@ -25,6 +25,12 @@ test("lives deplete by 1 with each incorrect guess", () => {
   expect(lives).toBeInTheDocument();
 });
 
+test("Head is not displayed if no incorrect letter pressed", () => {
+  fireEvent.keyDown(document, { key: "i" });
+  const head = screen.queryByTestId("head");
+  expect(head).not.toBeInTheDocument();
+});
+
 test("Head is displayed", () => {
   fireEvent.keyDown(document, { key: "Q" });
   const head = screen.queryByTestId("head");
