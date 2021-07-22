@@ -1,5 +1,8 @@
 import React from 'react'
+import ConfettiExplosion from '@reonomy/react-confetti-explosion';
 const axios = require('axios');
+
+
 
 export default function GameCompleted({handleDisplayScore, user, score}) {
 
@@ -13,7 +16,7 @@ export default function GameCompleted({handleDisplayScore, user, score}) {
     });
     console.log(res.data) 
   }
-
+  const [isExploding, setIsExploding] = React.useState(true);
   const handleComplete = async () => {
     await savePlayer()
     handleDisplayScore()
@@ -22,6 +25,7 @@ export default function GameCompleted({handleDisplayScore, user, score}) {
   return (
     <div>
       <h1>Finished!</h1>
+      {isExploding && <ConfettiExplosion />}
       <button className="btn-category" onClick={() => handleComplete()}>Submit Score</button>
     </div>
   )
