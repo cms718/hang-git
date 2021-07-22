@@ -8,7 +8,9 @@ export default function GameCompleted({handleDisplayScore, user, score}) {
   const savePlayer = async () => {
     const res = await axios.post(URL, {
       name: user.name,
-      score: score});
+      score: score,
+      difficulty: user.difficulty
+    });
     console.log(res.data) 
   }
 
