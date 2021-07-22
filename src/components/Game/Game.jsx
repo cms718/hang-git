@@ -139,7 +139,7 @@ export default function Game({exitGame, user, displayScore, questions}) {
               handleCompleteGame={handleCompleteGame}
               /> }
             {/* Pass score to gamecompleted when finished */}
-            {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore}/>}
+            {gameCompleted && <GameCompleted handleDisplayScore={handleDisplayScore} user={user} score={score}/>}
           </div>
         </div>
       </div>
