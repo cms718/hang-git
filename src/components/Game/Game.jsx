@@ -22,8 +22,13 @@ export default function Game({exitGame, user, displayScore, questions}) {
   const [gameCompleted, setGameCompleted] = useState(false)
   const [score, setScore] = useState(100)
 
+  const MODIFIERS = ['Shift', 'Alt', 'Tab', 'Meta', 'Backspace', 'CapsLock', 'Control', 'ArrowUp', 'ArrowRight', 'ArrowLeft', 'ArrowDown']
+
   const handleKeyPress = useCallback(
     ({ key }) => {
+      if (MODIFIERS.includes(key)) {
+        return;
+      }
       if (inProgress) {
         if (!guessedLetters.includes(key)) {
           const guessedLettersCopy = [...guessedLetters];
