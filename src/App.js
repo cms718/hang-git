@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Game from "./components/Game/Game";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 import { questionData } from "./QuestionData.js";
-import { userScores } from "./UserScores";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -31,10 +30,22 @@ function App() {
     setGameFinished(true);
   };
 
+  const [players, setPlayers] = useState()
+
+  const URL = process.env.REACT_APP_URL
+
+  useEffect(() => {
+    const getPlayers = async () => {
+      const res = await fetch(URL)
+      const data = await res.json()
+      setPlayers(data)
+    }
+    getPlayers()
+  }, [URL, gameFinished])
+
   const getQuestions = (difficulty) => {
     return questionData.filter((question) => question.level === difficulty);
   };
-
   return (
     <>
       {!gameStarted && !gameFinished && (
@@ -52,7 +63,7 @@ function App() {
         />
       )}
       {gameFinished && (
-        <ScoreBoard navigateBack={handleExitGame} userScores={userScores} />
+        <ScoreBoard navigateBack={handleExitGame} players={players} />
       )}
     </>
   );
